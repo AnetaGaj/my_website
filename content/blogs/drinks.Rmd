@@ -1,0 +1,91 @@
+---
+categories:  
+- ""    #the front matter should be like the one found in, e.g., blog2.md. It cannot be like the normal Rmd we used
+- ""
+date: "2021-09-30"
+description: Study on drinking spirits in different countries # the title that will show up once someone gets to this page
+draft: false
+image: spices.jpg # save picture in \static\img\blogs. Acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
+
+keywords: ""
+slug: drinks # slug is the shorthand URL address... no spaces plz
+title: Study on spirits
+---
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(fivethirtyeight)
+library(here)
+library(skimr)
+library(janitor)
+library(vroom)
+library(tidyquant)
+library(rvest) # to scrape wikipedia page
+```
+
+# Where Do People Drink The Most Beer, Wine And Spirits?
+
+Back in 2014, [fivethiryeight.com](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) published an article on alchohol consumption in different countries. 
+
+```{r, load_alcohol_data}
+library(fivethirtyeight)
+data(drinks)
+
+
+# or download directly
+# alcohol_direct <- read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/alcohol-consumption/drinks.csv")
+
+```
+
+What are the variable types? Any missing values we should worry about?
+
+There is one qualitative variable (country), and the rest of the variables are numerical (beer, wine, and spirit servings, as well as total litres of pure alcohol consumed). It does not appear that there are any missing values that we need to worry about.
+
+```{r glimpse_skim_data}
+glimpse(drinks)
+
+```
+
+```{r beer_plot}
+#Create Graph
+drinks %>% 
+  slice_max(order_by = beer_servings, n=25) %>% #Order for top 25 countries by beer consumption
+  ggplot(aes(x = beer_servings, y = fct_reorder(country, beer_servings))) +
+  geom_col() +
+  labs(title = "Top 25 Beer Consuming Countries", x = "Servings of Beer (cans)", y = "Country")
+
+
+```
+
+```{r wine_plot}
+#Create Graph
+drinks %>% 
+  slice_max(order_by = wine_servings, n=25) %>% #Order for top 25 countries by wine consumption
+  ggplot(aes(x = wine_servings, y = fct_reorder(country, wine_servings))) +
+  geom_col() + 
+  labs(title = "Top 25 Wine Consuming Countries", x = "Servings of Wine (glasses)", y = "Country")
+
+
+```
+
+```{r spirit_plot}
+#Create Graph
+drinks %>% 
+  slice_max(order_by = spirit_servings, n=25) %>% #Order for top 25 countries by spririt consumption
+  ggplot(aes(x = spirit_servings, y = fct_reorder(country, spirit_servings), fill = country)) +
+  geom_col() +
+  theme(legend.position = "None") +
+  labs(title = "Top 25 Spirit Consuming Countries", x = "Servings of Spirits (shots)", y = "Country")
+
+```
+
+What can you infer from these plots? 
+
+> TYPE YOUR ANSWER AFTER (AND OUTSIDE!) THIS BLOCKQUOTE.
+
+Surprisingly, the top beer drinking country was Namibia. After a little bit of research, we found out that Namibia used to be a German colony, so it is possible that the habits and drinking culture of Germany was passed on to the people of Namibia. Countries like the Czech Republic, Germany, Poland, and Lithuania are all in the same general area of Eastern Europe. This may indicate that the drinking culture in this area leans heavily towards beer. For wine, the countries that are in the top 25 was not too surprising. France and Portugal are large wine-producing countries, so wine there is high quality for lesser prices than in other areas of the world and is highly accessible. Even countries on the lower end of the scale still drink a significant amount of wine, possibly due to low import costs and an overall lower price per serving.
+
+The most surprising graph was for spirit consumption. Some of the top countries, like Grenada and St. Lucia, are Caribbean countries, so they probably have very relaxed ways of life and alcohol may play a big part in this. Furthermore, many Caribbean countries produce rum, hence making it very accessible to the people who live there (when compared to imported drinks). Additionally, the Russian Federation and Belarus produce lots of vodka and enjoy drinking it, so it was no surprise to see them in the top 25.

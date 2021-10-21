@@ -101,9 +101,9 @@ params:
         title: Project 2 
         url: blogs/weather
       - image: pic06.jpg
-        subtitle: ---
+        subtitle: A bit about spirits...
         title: Project 3
-        url: blogs/ipsum
+        url: blogs/drinks
   two:
     buttonText: Get Started
     enable: yes
