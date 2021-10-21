@@ -8,9 +8,9 @@ params:
   banner:
     buttonText: Get Started
     subtitle: |-
-      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Hi, my name is Aneta nd I am creating this website as a project for my university. 
+     # A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
+      # AND RELEASED UNDER THE CREATIVE COMMONS.
+    title: Hi, my name is Aneta and I am creating this website as a project for my university. 
   blog: {}
   contact:
     address: 
@@ -73,8 +73,8 @@ params:
         url: blogs
       #- name: Generic Blog
        # url: blogs/ipsum
-      - name: Elements
-        url: elements.html
+     # - name: Elements
+      #  url: elements.html
     menu: Menu
     subtitle: By HTML5 Up
     title: Forty
@@ -86,24 +86,24 @@ params:
         title: Hello and welcome! 
         url: blogs/aliquam
       - image: pic02.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Tempus
+        subtitle: Take a break
+        title: My thoughts
         url: blogs/tempus
       - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Magna
+        subtitle: ---
+        title: Project 1
         url: blogs/magna
       - image: pic04.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Ipsum
+        subtitle: Horse riding and boxing
+        title: Sports
         url: blogs/ipsum
       - image: pic05.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
+        subtitle: ---
+        title: Project 2 
         url: blogs/ipsum
       - image: pic06.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Etiam
+        subtitle: ---
+        title: Project 3
         url: blogs/ipsum
   two:
     buttonText: Get Started
