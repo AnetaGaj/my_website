@@ -83,7 +83,7 @@ params:
       - image: lbs.jpg
         subtitle: Aneta's website
         title: Hello and welcome! 
-        url: blogs/risk_return
+        url: blogs/magna
       - image: pic05.jpg
         subtitle: Take a break
         title: My thoughts
@@ -96,11 +96,11 @@ params:
         subtitle: Horse riding
         title: Sports
         url: blogs/ipsum
-      - image: pic02.jpg
+      - image: pic03.jpg
         subtitle: Weather anomalies
         title: Project 2 
         url: blogs/weather
-      - image: pic06.jpg
+      - image: alco.jpg
         subtitle: A bit about spirits...
         title: Project 3
         url: blogs/drinks
